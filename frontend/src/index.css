@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface text-textprimary font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold text-textprimary;
+  }
+}
+
+/* Custom fade-in animations for search results */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-item {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Skeleton loader shimmer */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #e2e8f0 25%,
+    #f1f5f9 50%,
+    #e2e8f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
