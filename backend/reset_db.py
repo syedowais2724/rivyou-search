@@ -13,7 +13,6 @@ def reset():
         cursor.execute("CREATE SCHEMA public;")
         # Note: grant permissions on the new schema
         cursor.execute("GRANT ALL ON SCHEMA public TO public;")
-        cursor.execute("GRANT ALL ON SCHEMA public TO rivyou;")
     print("Database schema reset successfully!")
 
 if __name__ == '__main__':
