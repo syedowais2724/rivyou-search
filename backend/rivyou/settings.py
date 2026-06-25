@@ -187,6 +187,6 @@ SPECTACULAR_SETTINGS = {
 
 # CORS configuration
 CORS_ALLOWED_ORIGINS = [
-    x.strip() for x in os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:5173,http://localhost:5175,http://127.0.0.1:5175').split(',') if x.strip()
+    x.strip() for x in os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:5173,http://localhost:5175,http://127.0.0.1:5175,https://rivyou-search.vercel.app').split(',') if x.strip()
 ]
 CORS_ALLOW_CREDENTIALS = True
