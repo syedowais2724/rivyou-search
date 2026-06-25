@@ -7,11 +7,14 @@ def reset():
     django.setup()
     
     from django.db import connection
-    print("Dropping products_product and django_migrations tables...")
+    print("Resetting database schema (dropping public schema)...")
     with connection.cursor() as cursor:
-        cursor.execute("DROP TABLE IF EXISTS products_product CASCADE;")
-        cursor.execute("DROP TABLE IF EXISTS django_migrations CASCADE;")
-    print("Database tables dropped successfully!")
+        cursor.execute("DROP SCHEMA public CASCADE;")
+        cursor.execute("CREATE SCHEMA public;")
+        # Note: grant permissions on the new schema
+        cursor.execute("GRANT ALL ON SCHEMA public TO public;")
+        cursor.execute("GRANT ALL ON SCHEMA public TO rivyou;")
+    print("Database schema reset successfully!")
 
 if __name__ == '__main__':
     reset()
